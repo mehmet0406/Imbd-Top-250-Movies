@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    img{
+      width: 100%;
+
+      display: block;
+    }
+    .blurred-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: pulse 2.5s infinite;
+  background-color: white;
+}
+.blurred-img::before {
+  content: none;
+  animation: none;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+    .blur-load{
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      width: 250px;
+    }
+    .blur-load.loaded > img{
+      opacity: 1;
+
+    }
+    .blur-load > img{
+      opacity: 0;
+      transition: opacity 200ms ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="blur-load" style="background-image: url(imbdd.png);">
+      <img src="imbdy-logo.png" loading="lazy">
+    </div>
+  </div>
+  <script>
+const blurDivs = document.querySelectorAll(".blur-load")
+blurDivs.forEach(div => {
+  const img = div.querySelector("img")
+
+  function loaded(){
+    div.classList.add("loaded")
+  }
+
+  if(img.complete){
+    loaded()
+  } else{
+    img.addEventListener("load",loaded)
+  }
+
+
+})
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        * {
+        
+            font-family: Verdana, Arial, sans-serif;
+            box-sizing: border-box;
+        }
+  .container{
+    font-size: 16px;
+  }
+      .star-name,
+      .film-name,
+      .director-name,
+      .writers-name{
+        font-size: 25px;
+        font-weight: normal;
+      }
+      @media screen and (max-width:1024px) {
+        .container{
+    font-size: 12px;
+  }
+  .star-name,
+      .film-name,
+      .director-name,
+      .writers-name{
+        font-size: 16px;
+ 
+      }
+      }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+        <h1 class="h1 film-title"><span class="film-title">Film Adı :</span> <span class="film-name"></span> </h1>
+        <br>
+        <h1 class="film-director"><span class="director-title">Director :</span>  <span class="director-name"></span></h1>
+        <br>
+        <h1 class="film-writes"><span class="writes-title">Yazar :</span>  <span class="writers-name"></span></h1>
+        <br>
+        <h1 class="film-star"><span class="star-title">Star Oyuncular :</span>  <span class="star-name"></span></h1>
+       </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const rank = urlParams.get(`rank`);
+        fetch(`/api.json?rank=${rank}`)
+
+
+            .then(respo => respo.json())
+            .then(data => {
+                const film = data.items.find(film => film.rank === rank);
+                console.log(film)  
+                let name_films =film.fullTitle 
+                let stars = film.stars
+                let director =film.directors
+                let writers = film.writers
+                let name = document.querySelector('.film-name')
+                let star = document.querySelector('.star-name') 
+                let director_name = document.querySelector('.director-name')
+                let writers_name = document.querySelector('.writers-name')
+                name.innerHTML = name_films
+                star.innerHTML=stars
+                director_name.innerHTML =director
+                writers_name.innerHTML = writers
+              
+            })
+     
+ 
+    </script>
+</body>
+
+</html>

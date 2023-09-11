@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        * {
+        
+          font-family: Google Sans, Roboto, Arial, sans-serif;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+  .container{
+    font-size: 16px;
+ 
+    height: 100vh;
+    background-color: rgb(20, 20, 21);
+    color:rgb(200, 200, 200);
+  padding: 20px;
+  }
+      .star-name,
+      .film-name,
+      .director-name,
+      .writers-name{
+        font-size: 25px;
+        font-weight: normal;
+      }
+      @media screen and (max-width:1024px) {
+
+  .star-name,
+      .film-name,
+      .director-name,
+      .writers-name{
+        font-size: 16px;
+ 
+      }
+
+      }
+    
+      img{
+        height: 70px;
+        width: 50px;
+
+      }
+     .btn{
+        padding-top: 20px;
+      
+
+      }
+      .btn button{
+        padding: 10px 10px;
+        border-radius: 35px;
+      }
+      a{
+     text-decoration: none;
+     color: black;
+      }
+      .skeleton-card{
+      max-width: 450px;
+        width: 100%;
+        background-color: rgb(39, 39, 41);
+        border: 1px solid #1b1a1a;
+        border-radius: 10px;
+        padding: 0.5rem;
+        display: flex;
+        gap: 20px;
+       margin-bottom: 20px;
+   
+      }
+   .skeleton-info{
+
+    height: 40px;
+    width: 200px;
+    border-radius: 70px;
+    background: linear-gradient(to right, #656861 0%,#888b94 20%,#656861 40%,#656861 100%);
+    background-size:400px 400px ;
+   
+    animation: skeleton-animate 2.5s linear infinite ;
+   }
+   .skeleton-header{
+    width: 50%;
+    height: 50px;
+
+}
+.skeleton-header .skeleton-title,.skeleton-title-2{
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #656861 0%,#888b94 20%,#656861 40%,#656861 100%);
+    border-radius: 35px;
+    animation: skeleton-animate 2.5s linear infinite;
+    background-size:400px 400px ;
+}
+.skeleton-title-2{
+    width: 80%;
+    height: 10px;
+  
+    margin-top: 10px;
+  
+   
+}
+
+@keyframes skeleton-animate {
+    0%{
+        background-position:-400px 0 ;
+    }
+    100%{
+        background-position: 400px 0;
+    }
+}
+
+.info {
+  
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      display: none;
+      transform: translate(-50%, -50%);
+      width: 450px;
+      background-color: rgb(210, 210, 210);
+      border-radius: 35px;
+      box-shadow: -22px 9px 26px 0px rgba(230, 230, 230, 0.2), 22px 9px 26px 0px rgba(230, 230, 230, 0.2);
+      transition: 1s ease;
+      z-index: 999;
+    }
+
+    .img svg {
+      height: 70px;
+    }
+
+    .img,
+    .warning-header,
+    .warning-text {
+      width: 100%;
+      color: rgb(33, 33, 33);
+      justify-content: center;
+      display: flex;
+      padding: 20px 0;
+
+    }
+
+    .warning-header,
+    .warning-text {
+      padding: 0 0 20px 0;
+    }
+
+    .butons {
+      text-align: right;
+      padding: 10px 0;
+    }
+
+    .iptal,
+    .change {
+      margin-right: 10px;
+    }
+
+    .info .butons button {
+      border-radius: 35px;
+      padding: 10px 20px;
+      background-color: rgb(223, 223, 223);
+      font-weight: 600;
+    }
+    @media  screen and (max-width:600px) {
+      .info{
+            width: 50%;
+            padding: 0 30px;
+        }
+        .warning-header,.warning-text{
+            text-align: center;
+            line-height: 24px;
+        }
+      .change,.iptal{
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="info">
+    <div class="img"><svg class="bi bi-exclamation-circle" fill="rgba(255, 164, 52, 1)" viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+        <path
+          d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z">
+        </path>
+      </svg></div>
+    <div class="warning-header">
+      <h2>API Anahtarınızın Kotası Dolmuştur</h3>
+    </div>
+    <div class="warning-text">
+      <h4>Lütfen API Anahtarınızı Değiştirin ve Tekrar Deneyin</h4>
+    </div>
+    <div class="butons">
+      <button class="iptal" onclick="closeInfo()">İPTAL</button>
+      <a href="/index1.html"><button class="change"> API ANAHTARI DEĞİŞTİR</button></a>
+    </div>
+
+  </div>
+ <div class="skeleton">
+<div class="skeleton-card">
+  <div class="skeleton-info"></div>
+  <div class="skeleton-header">
+      <div class="skeleton-title"></div>
+      <div class="skeleton-title-2"></div>
+  </div>
+</div>
+<div class="skeleton-card">
+  <div class="skeleton-info"></div>
+  <div class="skeleton-header">
+      <div class="skeleton-title"></div>
+      <div class="skeleton-title-2"></div>
+  </div>
+</div>
+<div class="skeleton-card">
+  <div class="skeleton-info"></div>
+  <div class="skeleton-header">
+      <div class="skeleton-title"></div>
+      <div class="skeleton-title-2"></div>
+  </div>
+</div>
+<div class="skeleton-card">
+  <div class="skeleton-info"></div>
+  <div class="skeleton-header">
+      <div class="skeleton-title"></div>
+      <div class="skeleton-title-2"></div>
+  </div>
+  
+</div>
+
+<div class="btn"><button><a href="/index1.html">API Key Change</a></button> </div> 
+</div>
+</div>
+
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get(`id`);
+        const url = 'https://imdb-api.com/en/API/Title/'
+        const apiKey = localStorage.getItem("selectedApiKey");
+        const baseUrl = `${url}${apiKey}/${id}/Trailer,`
+
+        function hideSkeletonCards() {
+            const skeleton = document.querySelector('.skeleton');
+            skeleton.style.display = 'none'
+           
+        }
+
+
+        function showInfo() {
+      var infoDiv = document.querySelector('.info');
+      infoDiv.style.opacity = '1';
+      setTimeout(function () {
+        infoDiv.style.display = 'block';
+      }, 700);
+    }
+    function closeInfo() {
+      var infoDiv = document.querySelector('.info');
+      infoDiv.style.opacity = '0';
+      setTimeout(function () {
+        infoDiv.style.display = 'none';
+      }, 700);
+    }
+    function hideBodySkeleton() {
+      var animateDiv = document.querySelector('.skeleton');
+      if (animateDiv) {
+        animateDiv.style.display = 'none';
+      }
+    }
+
+    var tableExists = document.querySelector('.film-title');
+
+    if (tableExists) {
+      hideBodySkeleton();
+    } else {
+      setTimeout(function () {
+        var tableStillExists = document.querySelector('.film-title');
+        if (!tableStillExists) {
+          showInfo()
+        }
+      }, 3000);
+    }
+
+
+   fetch(`${url}${apiKey}/${id}/Trailer,`)
+
+
+            .then(respo => respo.json())
+            .then(data => {
+
+            let container = document.querySelector('.container')
+              let div = document.createElement('div')
+              div.classList.add('main')    
+               let name_films =data.fullTitle 
+                let stars = data.stars
+                let director =data.directors
+                let writers = data.writers
+          let trailer = data.trailer.linkEmbed
+              div.innerHTML =`
+              <h1 class="h1 film-title"><span class="film-title">Film Adı :</span><span class="film-name">${name_films} </span> </h1>
+        <br>
+        <h1 class="film-director"><span class="director-title">Director :</span>  <span class="director-name">${director}</span></h1>
+        <br>
+        <h1 class="film-writes"><span class="writes-title">Yazar :</span> <span class="writers-name">${writers} </span></h1>
+        <br>
+        <h1 class="film-star"><span class="star-title">Star Oyuncular :</span>  <span class="star-name">${stars}</span></h1>
+      
+   <a href="${trailer}" target="_blank"> <img src="video.png" alt=""></a> 
+   <div class="btn"><button><a href="/index1.html">API Key Change</a></button> </div> 
+              
+              `
+            container.appendChild(div)
+
+            hideSkeletonCards();
+            })
+
+    </script>
+</body>
+
+</html>

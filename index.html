@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMBD Top 250 Movies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+ 
+</head>
+<body>
+  <div class="container">
+    <div class="main">
+      <div class="info">
+        <div class="img"><svg class="bi bi-exclamation-circle" fill="rgba(255, 164, 52, 1)" viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z">
+            </path>
+          </svg></div>
+        <div class="warning-header">
+          <h2>API Anahtarınızın Kotası Dolmuştur</h3>
+        </div>
+        <div class="warning-text">
+          <h4>Lütfen API Anahtarınızı Değiştirin ve Tekrar Deneyin</h4>
+        </div>
+        <div class="butons">
+          <button class="iptal" onclick="closeInfo()">İPTAL</button>
+          <a href="/index1.html"><button class="change"> API ANAHTARI DEĞİŞTİR</button></a>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="navbar-left">
+          <div class="burger">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+          </div>
+          <span class="logo"><img src="/imbd-logo.png" height="40px" alt=""></span>
+          <span class="imdbpro">
+            <p><strong> IMDbPro</strong></p>
+          </span>
+        </div>
+        <div class="navbar-center">
+          <form>
+            <div class="select-container">
+              <select class="select-box">
+                <option value="all">Everywhere</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+              </select>
+            </div>
+            <div class="search-container">
+              <div class="search-element">
+                <input type="text" class="form-control" onkeyup="searchMovies()"
+                  placeholder="Search for a movie, tv show or actor...">
+                <button class="search-icon" onclick="searchMovies()"><svg style="height:25px;" viewBox="0 0 32 32"
+                    xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="m27.414 24.586-5.077-5.077A9.932 9.932 0 0 0 24 14c0-5.514-4.486-10-10-10S4 8.486 4 14s4.486 10 10 10a9.932 9.932 0 0 0 5.509-1.663l5.077 5.077a2 2 0 1 0 2.828-2.828zM7 14c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7-7-3.14-7-7z"
+                      fill="#787878" class="fill-000000"></path>
+                  </svg></button>
+                <div class="search-list">
+                  <div class="skeleton-card">
+                    <div class="skeleton-img"></div>
+                    <div class="skeleton-header">
+                      <div class="skeleton-title"></div>
+                      <div class="skeleton-title-2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="body">
+        <div class="nav-page">
+          <ul class="nav-list ">
+            <li class="list-head "><a href=""> Most Populer</a></li>
+            <li><a href="card.html"> Card Design</a></li>
+            <li><a href="/index1.html">API Key Change</a></li>
+          </ul>
+        </div>
+        <div class="table-container">
+          <div class="header ">
+            <p> IMDB TOP 250 MOVIES</p>
+          </div>
+          <div class="div-table">
+            <div class="div-table-head">
+              <div class="div-table-row">
+                <div class="div-table-col poster">Poster</div>
+                <div class="div-table-col rank">Rank</div>
+                <div class="div-table-col title">Title</div>
+                <div class="div-table-col year">Year</div>
+                <div class="div-table-col genre">Genre</div>
+                <div class="div-table-col rating">IMDB Rating</div>
+            
+              </div>
+            </div>
+            <div class="div-table-body">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+  <script src="javascript.js"></script>
+
+
+</body>
+
+</html> 
